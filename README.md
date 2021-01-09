@@ -58,7 +58,7 @@ dotnet new classlib -n Service -o Api.Service
 dotnet sln add Api.Service
 ```
 
-**Referências**
+**Criar Referências**
 
 ```bash
 dotnet add Api.Application reference Api.Domain
