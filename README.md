@@ -19,7 +19,7 @@ dotnet new sln --name Api
 **Criar camada de Aplicação**
 
 ```bash
-dotnet new webapi -n Application -o Api.Application --no-https
+dotnet new webapi -n Application -o Api.Application
 
 dotnet sln add Api.Application
 
