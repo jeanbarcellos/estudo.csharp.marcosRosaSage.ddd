@@ -6,7 +6,17 @@ mkdir dojo
 cd dojo
 
 mkdir src
+```
 
+**Abrir o VS Code**
+
+```bash
+code .
+```
+
+**Abrir o terminal acessar /src**
+
+```bash
 cd src
 ```
 
@@ -20,22 +30,9 @@ dotnet new sln --name Api
 
 ```bash
 dotnet new webapi -n Application -o Api.Application
-
 dotnet sln add Api.Application
 
 dotnet build
-```
-
-**Abrir o VS Code**
-
-```bash
-cd ..
-
-code .
-```
-
-```bash
-cd src
 ```
 
 **Criar a Camada de Dominio**
@@ -43,6 +40,7 @@ cd src
 ```bash
 dotnet new classlib -n Domain -o Api.Domain
 dotnet sln add Api.Domain
+
 dotnet build
 ```
 
