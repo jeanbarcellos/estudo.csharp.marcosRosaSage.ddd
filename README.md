@@ -70,17 +70,20 @@ dotnet add Api.Service reference Api.Domain
 dotnet add Api.Service reference Api.Data
 ```
 
-Api.Data - Instalação Pacotes Entity Framework
+Api.Data - Instalação Pacotes EntityFramework
 
 **Para instalar precisar estar dentro da Pasta Api.Data**
 
 ```bash
 cd Api.Data
 
+dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Pomelo.EntityFrameworkCore.MySql
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL // Não usei MySQL
 
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer.Design
+// Não instalei, por enquanto!
+// dotnet add package Pomelo.EntityFrameworkCore.MySql
+// dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+// dotnet add package Microsoft.EntityFrameworkCore.SqlServer.Design
 ```
