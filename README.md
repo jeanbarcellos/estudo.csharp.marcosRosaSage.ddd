@@ -1,3 +1,13 @@
+# Uma arquitetura, em ASP.Net Core, baseada nos princípios do DDD
+
+Adaptado para .NET 5
+
+Links:
+
+- https://github.com/MarcosRosaSage/curso_aspnetcore/blob/master/ApresentacaoAspNetCore2.2.pdf
+- https://github.com/MarcosRosaSage/curso_aspnetcore
+- https://alexalvess.medium.com/criando-uma-api-em-net-core-baseado-na-arquitetura-ddd-2c6a409c686
+
 **Criar as Pasta com o comando abaixo:**
 
 ```bash
@@ -86,4 +96,27 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL // Não usei MySQL
 // dotnet add package Pomelo.EntityFrameworkCore.MySql
 // dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 // dotnet add package Microsoft.EntityFrameworkCore.SqlServer.Design
+```
+
+Para poder rodar comando no CLI, adicionar no arquivo `src\Api.Data\Data.csproj`
+
+```xml
+<ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.dotnet " Version="2.0.3" />
+</ItemGroup>
+```
+
+Para restaurar todos os pacotes
+
+```bash
+dotnet restore
+```
+
+**Entity Framework Migrations**
+
+
+```bash
+dotnet ef migrations add Initials
+
+dotnet ef database update
 ```
