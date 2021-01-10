@@ -1,9 +1,11 @@
+using Api.Data.Context;
 using Api.Data.Repositories;
 using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services;
 using Api.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +24,12 @@ namespace Application
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = "Host=127.0.0.1;Database=dojo;Username=postgres;Password=postgres;Port=5433";
+            services.AddDbContext<MyContext>(
+              options => options.UseNpgsql(connectionString)
+            );
+            services.AddScoped<MyContext, MyContext>();
+
             services.AddTransient<IUserService, UserService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
