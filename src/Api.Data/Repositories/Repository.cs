@@ -10,8 +10,16 @@ namespace Api.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
+
         protected readonly MyContext _context;
         private DbSet<T> _dataset;
+
+        public Repository(MyContext context)
+        {
+            _context = context;
+            _dataset = context.Set<T>();
+        }
+
 
         public async Task<T> InsertAsync(T item)
         {
