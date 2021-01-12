@@ -24,9 +24,8 @@ namespace Application
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Host=127.0.0.1;Database=dojo;Username=postgres;Password=postgres;Port=5433";
             services.AddDbContext<MyContext>(
-              options => options.UseNpgsql(connectionString)
+              options => options.UseNpgsql(Configuration.GetConnectionString("Default"))
             );
             services.AddScoped<MyContext, MyContext>();
 
