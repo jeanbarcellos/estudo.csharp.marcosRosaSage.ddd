@@ -93,11 +93,6 @@ dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL // Não usei MySQL
-
-// Não instalei, por enquanto!
-// dotnet add package Pomelo.EntityFrameworkCore.MySql
-// dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-// dotnet add package Microsoft.EntityFrameworkCore.SqlServer.Design
 ```
 
 Para poder rodar comando no CLI, adicionar no arquivo `src\Api.Data\Data.csproj`
