@@ -20,7 +20,6 @@ namespace Api.Data.Repositories
             _dataset = context.Set<T>();
         }
 
-
         public async Task<T> InsertAsync(T item)
         {
             try
