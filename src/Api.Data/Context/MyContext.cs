@@ -1,3 +1,4 @@
+using System.Reflection;
 using Api.Data.Mapping;
 using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,16 @@ namespace Api.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            // Forma 1 - Mapear entidade para tabela
+            // modelBuilder.Entity<UserEntity>(new UserMap().Configure); // Professor
+            // new UserMap().Configure(modelBuilder.Entity<UserEntity>()); //  Doc Microsoft
 
-            modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            // Forma 2 - Exemplo BALTA
+            modelBuilder.ApplyConfiguration(new UserMap());
+
+            // Forma 3 - Varre um determinado assembly para todos os tipos que o implementam IEntityTypeConfiguratione registra cada um automaticamente.
+            // Observação: A ordem na qual as configurações serão aplicadas é indefinida,portanto, esse método só deve ser usado quando a ordem não importa.
+            // modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 

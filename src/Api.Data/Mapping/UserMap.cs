@@ -1,6 +1,6 @@
-using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Api.Domain.Entities;
 
 namespace Api.Data.Mapping
 {
