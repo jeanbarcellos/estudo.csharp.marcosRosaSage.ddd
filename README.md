@@ -1,3 +1,5 @@
+Repositório apenas para estudos!
+
 # Uma arquitetura, em ASP.Net Core, baseada nos princípios do DDD
 
 Adaptado para .NET 5
@@ -11,9 +13,9 @@ Links:
 **Criar as Pasta com o comando abaixo:**
 
 ```bash
-mkdir dojo
+mkdir Api-DDD
 
-cd dojo
+cd Api-DDD
 
 mkdir src
 ```
@@ -114,9 +116,32 @@ dotnet restore
 
 **Entity Framework Migrations**
 
-
 ```bash
 dotnet ef migrations add Initials
 
 dotnet ef database update
+```
+
+<br><br><br><br>
+## Anotações
+
+**Mapeamento de entidades**
+
+```cs
+public class MyContext : DbContext
+{
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
+  {
+      // Forma 1 - Mapear entidade para tabela
+      modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+      new UserMap().Configure(modelBuilder.Entity<UserEntity>());
+
+      // Forma 2 - Exemplo BALTA
+      modelBuilder.ApplyConfiguration(new UserMap());
+
+      // Forma 3 - Varre um determinado assembly para todos os tipos que o implementam IEntityTypeConfiguratione registra cada um automaticamente.
+      // Observação: A ordem na qual as configurações serão aplicadas é indefinida,portanto, esse método só deve ser usado quando a ordem não importa.
+      modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+  }
+}
 ```
