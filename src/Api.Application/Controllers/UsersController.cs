@@ -7,18 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-
         protected readonly IUserService _service;
+
         public UsersController(IUserService service)
         {
             _service = service;
         }
 
         [HttpGet]
+        [Route("")]
         public async Task<ActionResult> GetAll()
         {
             if (!ModelState.IsValid)
@@ -37,9 +38,8 @@ namespace Api.Application.Controllers
 
         }
 
-
         [HttpGet]
-        [Route("{id}", Name = "GetWithId")]
+        [Route("{id:guid}", Name = "GetId")]
         public async Task<ActionResult> Get(Guid id)
         {
             if (!ModelState.IsValid)
@@ -58,10 +58,8 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(
-            [FromBody] UserEntity user,
-            [FromServices] IUserService service
-        )
+        [Route("")]
+        public async Task<ActionResult> Post([FromBody] UserEntity user)
         {
             if (!ModelState.IsValid)
             {
@@ -70,11 +68,11 @@ namespace Api.Application.Controllers
 
             try
             {
-                var result = await service.Post(user);
+                var result = await _service.Post(user);
                 if (result != null)
                 {
                     return Created(
-                        new Uri(Url.Link("GetWithId", new { id = result.Id })),
+                        new Uri(Url.Link("GetId", new { id = result.Id })),
                         result
                     );
                 }
@@ -90,8 +88,14 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] UserEntity user)
+        [Route("{id:guid}")]
+        public async Task<ActionResult> Put(Guid id, [FromBody] UserEntity user)
         {
+            if (id != user.Id)
+            {
+                return NotFound(new { message = "Produto não encontrada" });
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -116,11 +120,18 @@ namespace Api.Application.Controllers
         }
 
         [HttpDelete]
+        [Route("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id)
         {
-            if (!ModelState.IsValid)
+            if (id == Guid.Empty)
             {
                 return BadRequest(ModelState);
+            }
+
+            var user = _service.Get(id);
+            if (user == null)
+            {
+                return NotFound(new { message = "Produto não encontrato" });
             }
 
             try
