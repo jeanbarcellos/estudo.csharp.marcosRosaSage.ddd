@@ -1,14 +1,22 @@
-Repositório apenas para estudos!
+_Repositório apenas para estudo_
 
 # Uma arquitetura, em ASP.Net Core, baseada nos princípios do DDD
 
 Adaptado para .NET 5
 
-Links:
+Instrutor:
+
+- [Marcos Fabricio Rosa](https://github.com/MarcosRosaSage)
+
+Referências:
 
 - https://github.com/MarcosRosaSage/curso_aspnetcore/blob/master/ApresentacaoAspNetCore2.2.pdf
 - https://github.com/MarcosRosaSage/curso_aspnetcore
 - https://alexalvess.medium.com/criando-uma-api-em-net-core-baseado-na-arquitetura-ddd-2c6a409c686
+
+<br>
+<br>
+<hr>
 
 **Criar as Pasta com o comando abaixo:**
 
@@ -118,6 +126,7 @@ dotnet ef database update
 ```
 
 <br><br><br><br>
+
 ## Anotações
 
 **Mapeamento de entidades**
