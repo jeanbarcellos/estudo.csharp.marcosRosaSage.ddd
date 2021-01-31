@@ -24,8 +24,6 @@ Referências:
 mkdir Api-DDD
 
 cd Api-DDD
-
-mkdir src
 ```
 
 **Abrir o VS Code**
@@ -34,16 +32,16 @@ mkdir src
 code .
 ```
 
+**Abrir e criar o diretório `src/` (onde ficarão os projetos)**
+
+```bash
+mkdir src
+```
+
 **Criar solução**
 
 ```bash
 dotnet new sln --name Api
-```
-
-**Abrir o terminal acessar `/src`**
-
-```bash
-cd src
 ```
 
 **Criar camada de Aplicação**
@@ -81,18 +79,20 @@ dotnet sln add src/Api.Service
 **Criar Referências**
 
 ```bash
-dotnet add src/Api.Application reference src/Api.Domain
-dotnet add src/Api.Application reference src/Api.Service
+cd src/
 
-dotnet add src/Api.Data reference src/Api.Domain
+dotnet add Api.Application reference Api.Domain
+dotnet add Api.Application reference Api.Service
 
-dotnet add src/Api.Service reference src/Api.Domain
-dotnet add src/Api.Service reference src/Api.Data
+dotnet add Api.Data reference Api.Domain
+
+dotnet add Api.Service reference Api.Domain
+dotnet add Api.Service reference Api.Data
 ```
 
 Api.Data - Instalação Pacotes EntityFramework
 
-**Para instalar precisar estar dentro do diretório Api.Data**
+**Para instalar precisar estar dentro do diretório `Api.Data`**
 
 ```bash
 cd Api.Data
