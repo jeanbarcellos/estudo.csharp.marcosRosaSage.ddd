@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Api.Application\Application.csproj", "{661D4528-B075-4F11-BE44-DD1A61B2EF15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Api.Application\Application.csproj", "{661D4528-B075-4F11-BE44-DD1A61B2EF15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Api.Domain\Domain.csproj", "{5A80E809-0A39-4D9E-9A29-59705B97B3D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Api.Domain\Domain.csproj", "{5A80E809-0A39-4D9E-9A29-59705B97B3D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Api.Data\Data.csproj", "{9C7A2E98-36A0-41F8-9881-E119AD4AFCE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src\Api.Data\Data.csproj", "{9C7A2E98-36A0-41F8-9881-E119AD4AFCE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Api.Service\Service.csproj", "{75093670-6684-4C6B-A75A-C3F2B0E30E3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src\Api.Service\Service.csproj", "{75093670-6684-4C6B-A75A-C3F2B0E30E3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

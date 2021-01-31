@@ -34,23 +34,23 @@ mkdir src
 code .
 ```
 
-**Abrir o terminal acessar /src**
-
-```bash
-cd src
-```
-
 **Criar solução**
 
 ```bash
 dotnet new sln --name Api
 ```
 
+**Abrir o terminal acessar `/src`**
+
+```bash
+cd src
+```
+
 **Criar camada de Aplicação**
 
 ```bash
-dotnet new webapi -n Application -o Api.Application
-dotnet sln add Api.Application
+dotnet new webapi -n Application -o src/Api.Application
+dotnet sln add src/Api.Application
 
 dotnet build
 ```
@@ -58,8 +58,8 @@ dotnet build
 **Criar a Camada de Dominio**
 
 ```bash
-dotnet new classlib -n Domain -o Api.Domain
-dotnet sln add Api.Domain
+dotnet new classlib -n Domain -o src/Api.Domain
+dotnet sln add src/Api.Domain
 
 dotnet build
 ```
@@ -67,32 +67,32 @@ dotnet build
 **Criar a Camada de Data**
 
 ```bash
-dotnet new classlib -n Data -o Api.Data
-dotnet sln add Api.Data
+dotnet new classlib -n Data -o src/Api.Data
+dotnet sln add src/Api.Data
 ```
 
 **Criar a Camada de Service**
 
 ```bash
-dotnet new classlib -n Service -o Api.Service
-dotnet sln add Api.Service
+dotnet new classlib -n Service -o src/Api.Service
+dotnet sln add src/Api.Service
 ```
 
 **Criar Referências**
 
 ```bash
-dotnet add Api.Application reference Api.Domain
-dotnet add Api.Application reference Api.Service
+dotnet add src/Api.Application reference src/Api.Domain
+dotnet add src/Api.Application reference src/Api.Service
 
-dotnet add Api.Data reference Api.Domain
+dotnet add src/Api.Data reference src/Api.Domain
 
-dotnet add Api.Service reference Api.Domain
-dotnet add Api.Service reference Api.Data
+dotnet add src/Api.Service reference src/Api.Domain
+dotnet add src/Api.Service reference src/Api.Data
 ```
 
 Api.Data - Instalação Pacotes EntityFramework
 
-**Para instalar precisar estar dentro da Pasta Api.Data**
+**Para instalar precisar estar dentro do diretório Api.Data**
 
 ```bash
 cd Api.Data
@@ -123,6 +123,26 @@ dotnet restore
 dotnet ef migrations add Initials
 
 dotnet ef database update
+```
+
+**Executar**
+
+Acessar a raiz do projeto
+
+Rodar com ouvinte:
+
+```
+dotnet watch --project src/Api.Application run
+ou
+dotnet watch --project src/Api.Application/Application.csproj run
+```
+
+Apenas rodar
+
+```
+dotnet run --project src/Api.Application
+ou
+dotnet run --project src/Api.Application/Application.csproj
 ```
 
 <br><br><br><br>
