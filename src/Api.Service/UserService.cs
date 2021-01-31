@@ -5,7 +5,7 @@ using Api.Domain.Entities;
 using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services;
 
-namespace Api.Domain.Services
+namespace Api.Service
 {
     public class UserService : IUserService
     {
